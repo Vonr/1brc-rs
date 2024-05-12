@@ -1,0 +1,25 @@
+[package]
+name = "rs-1brc"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "single_threaded"
+path = "src/single_threaded.rs"
+
+[[bin]]
+name = "multi_threaded"
+path = "src/multi_threaded.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+debug = true
+strip = "none"
+
+[dependencies]
+glidesort = "0.1"
+memmap2 = "0.9"
+rustc-hash = "1"
